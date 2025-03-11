@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "a3472a02-be58-4d8f-b3ec-e1caf677175d",
+		"name": "fatapi-test-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20552831",
+		"_collection_link": "https://www.postman.com/dark-station-417511/workspace/5ba8ac02-df5b-4597-b44b-8692b1da72df/collection/20552831-a3472a02-be58-4d8f-b3ec-e1caf677175d?action=share&source=collection_link&creator=20552831"
+	},
+	"item": [
+		{
+			"name": "get message",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"test message\", ()=>{",
+							"    const res = pm.response.json()",
+							"    pm.expect(res.message).to.be.eqls(\"Hello World from continus deployment - test de deployment\")",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.173:8001/",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"173"
+					],
+					"port": "8001",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
