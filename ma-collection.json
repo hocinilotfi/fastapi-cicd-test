@@ -47,6 +47,50 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://192.168.1.27:8001/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"test message\", ()=>{",
+							"    const res = pm.response.json()",
+							"    pm.expect(res.message).to.be.eqls(\"Login\")",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.27:8001/login",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"27"
+					],
+					"port": "8001",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
